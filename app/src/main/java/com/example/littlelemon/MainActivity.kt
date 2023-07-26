@@ -3,15 +3,10 @@ package com.example.littlelemon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Scaffold
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.tooling.preview.Preview
-
-import com.example.littlelemon.ui.theme.LowerPanel
-import com.example.littlelemon.ui.theme.UpperPanel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,32 +14,22 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-    HomeScreen()
-
+       MyNavigation()
         }
     }
+ @Composable
+ fun MyNavigation(){
+ val navController = rememberNavController()
+     NavHost(navController = navController, startDestination = LoginScreen.route){
+         composable(LoginScreen.route){
+             LoginScreen(navController)
+         }
+         composable(HomeScreen.route){
+             com.example.littlelemon.ui.theme.HomeScreen()
+         }
+     }
+ }
 
-  @Composable
-  fun HomeScreen(){
-      val  scaffoldState = rememberScaffoldState()
-      val scope = rememberCoroutineScope()
-      Scaffold(
-          scaffoldState = scaffoldState,
-          drawerContent = { DrawerPanel(scaffoldState = scaffoldState,scope = scope)},
-          topBar = {
-              TopAppBar(scaffoldState, scope )
-          }
-      ) {
-
-
-
-          Column {
-
-              UpperPanel()
-              LowerPanel()
-          }
-      }
-  }
 
 }
 
