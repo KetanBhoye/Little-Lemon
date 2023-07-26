@@ -1,5 +1,7 @@
 package com.example.littlelemon
 
+
+
 interface  Destinations{
     val route:String
 }
@@ -9,3 +11,7 @@ object  HomeScreen: Destinations{
 object  LoginScreen: Destinations{
     override val route = "HomeScreen"
 }
+
+
+
+
