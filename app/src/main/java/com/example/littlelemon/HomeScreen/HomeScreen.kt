@@ -1,8 +1,11 @@
 package com.example.littlelemon.ui.theme
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
@@ -42,6 +45,12 @@ fun HomeScreen(navController: NavHostController) {
         Column {
 
             UpperPanel()
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly){
+                categories.forEach{
+                   MenuCategory(category = it)
+                }
+
+            }
             LowerPanel()
         }
     }
