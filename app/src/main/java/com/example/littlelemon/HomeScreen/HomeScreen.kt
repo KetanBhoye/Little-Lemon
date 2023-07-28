@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
@@ -15,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.littlelemon.Data.Categories
 import com.example.littlelemon.DrawerPanel
 import com.example.littlelemon.TopAppBar
 
@@ -45,10 +48,14 @@ fun HomeScreen(navController: NavHostController) {
         Column {
 
             UpperPanel()
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly){
-                categories.forEach{
-                   MenuCategory(category = it)
-                }
+
+           LazyRow{
+
+         items(Categories){
+             category->
+             MenuCategory(category = category)
+
+            }
 
             }
             LowerPanel()

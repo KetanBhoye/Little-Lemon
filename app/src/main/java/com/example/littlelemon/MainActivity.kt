@@ -8,6 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.littlelemon.Experiment.MenuGrid
+import com.example.littlelemon.Experiment.data.MenuListScreen
 import com.example.littlelemon.Navigation.MyNavigation
 import com.example.littlelemon.Navigation.NavigationMaster
 
@@ -16,8 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-
-       NavigationMaster()
+             NavigationMaster()
         }
     }
 

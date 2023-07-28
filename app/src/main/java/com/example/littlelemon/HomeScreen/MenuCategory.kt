@@ -13,11 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MenuCategory(category: String){
+fun MenuCategory(category: String) {
     Button(onClick = {  },
-        colors = ButtonDefaults.buttonColors(backgroundColor =Color.LightGray),
+        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
         shape = RoundedCornerShape(40),
-    modifier = Modifier.padding(5.dp),
+        modifier = Modifier.padding(5.dp),
     ) {
         Text(text = category, fontWeight = FontWeight.Bold)
 
