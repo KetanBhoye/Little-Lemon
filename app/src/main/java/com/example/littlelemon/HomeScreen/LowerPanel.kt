@@ -48,7 +48,8 @@ fun WeeklySpecialCard(){
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier
-                .padding(8.dp)
+                .padding(8.dp),
+            color = LittleLemonColor.charcoal
         )
     }
 }
@@ -64,17 +65,18 @@ fun MenuDish(Dish: Dish) {
             Column {
                 Text(text = Dish.name,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = LittleLemonColor.charcoal
                 )
                 Text(text = Dish.description,
-                    color = Color.Gray,
                     modifier = Modifier
                         .padding(top = 5.dp, bottom = 5.dp)
-                        .fillMaxWidth(.75f)
+                        .fillMaxWidth(.75f),
+                    color = LittleLemonColor.green
                 )
                 Text(text = Dish.price,
-                    color = Color.Gray,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = LittleLemonColor.green
                 )
             }
             Image(painter = painterResource(id = Dish.image),
@@ -83,8 +85,9 @@ fun MenuDish(Dish: Dish) {
         }
     }
     Divider(modifier = Modifier.padding(start = 8.dp, end = 8.dp),
-        color = Color.LightGray,
+        color = LittleLemonColor.yellow,
         thickness = 1.dp
+
     )
 }
 

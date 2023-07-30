@@ -23,7 +23,7 @@ fun NavigationMaster(){
         Box(modifier = Modifier.padding(it)){}
         NavHost(navController = navController, startDestination = Home.route){
             composable(Home.route){
-               com.example.littlelemon.ui.theme.HomeScreen(navController = navController)
+              HomeScreen(navController = navController)
             }
             composable(Settings.route){
                 SettingsScreen()
