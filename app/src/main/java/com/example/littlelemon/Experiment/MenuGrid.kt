@@ -59,7 +59,7 @@ fun GridCell(){
             .padding(8.dp)
 
         ){
-            Image(painter = painterResource(id = R.drawable.dish_1), contentDescription = "Greek Salad")
+            Image(painter = painterResource(id = R.drawable.bruschetta), contentDescription = "Greek Salad")
             Text(text = "Greek Salad",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,

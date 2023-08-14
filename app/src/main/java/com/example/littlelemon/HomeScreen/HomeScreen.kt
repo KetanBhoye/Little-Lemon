@@ -17,6 +17,7 @@ import androidx.navigation.NavHostController
 import com.example.littlelemon.Data.Categories
 import com.example.littlelemon.Data.DishRepository
 import com.example.littlelemon.DrawerPanel
+import com.example.littlelemon.LowerPanel
 import com.example.littlelemon.TopAppBar
 
 @Composable
