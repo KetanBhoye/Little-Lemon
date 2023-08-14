@@ -1,11 +1,8 @@
 package com.example.littlelemon.ui.theme
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
@@ -18,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.littlelemon.Data.Categories
+import com.example.littlelemon.Data.DishRepository
 import com.example.littlelemon.DrawerPanel
 import com.example.littlelemon.TopAppBar
 
@@ -58,7 +56,7 @@ fun HomeScreen(navController: NavHostController) {
             }
 
             }
-            LowerPanel()
+            LowerPanel(navController, DishRepository.dishes)
         }
     }
 }

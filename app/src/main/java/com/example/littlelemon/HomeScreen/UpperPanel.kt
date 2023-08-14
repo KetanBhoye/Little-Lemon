@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,7 +15,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,6 +31,7 @@ fun UpperPanel(){
         modifier = Modifier
             .background(LittleLemonColor.green)
             .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
+            .fillMaxHeight(.44f)
     ) {
         Text(
             text = stringResource(id = R.string.title),
@@ -70,7 +71,7 @@ fun UpperPanel(){
                 text = stringResource(id = R.string.order_button_text),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = LittleLemonColor.yellow
+                color = LittleLemonColor.charcoal
             )
         }
     }

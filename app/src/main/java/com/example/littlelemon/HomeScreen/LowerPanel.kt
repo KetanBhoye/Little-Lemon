@@ -1,5 +1,6 @@
 package com.example.littlelemon.ui.theme
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,28 +10,28 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.littlelemon.Data.Dish
-import com.example.littlelemon.Data.dishes
+import com.example.littlelemon.DishDetails
 
 
 @Composable
-fun LowerPanel() {
+fun LowerPanel(navController: NavHostController, dishes: List<Dish> = listOf()) {
     Column {
         WeeklySpecialCard()
 
         LazyColumn(modifier = Modifier.padding(8.dp)){
             items(dishes){
                     Dish->
-                MenuDish(Dish)
+                MenuDish(navController,Dish)
             }
         }
     }
@@ -55,9 +56,15 @@ fun WeeklySpecialCard(){
 }
 
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MenuDish(Dish: Dish) {
-    Card {
+fun MenuDish(navController: NavHostController? = null, Dish: Dish) {
+    Card(
+        onClick = {
+            Log.d("AAA", "Click ${Dish.id}")
+            navController?.navigate(DishDetails.route + "/${Dish.id}")
+        }
+    ){
         Row(modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
@@ -74,12 +81,12 @@ fun MenuDish(Dish: Dish) {
                         .fillMaxWidth(.75f),
                     color = LittleLemonColor.green
                 )
-                Text(text = Dish.price,
+                Text(text = "${Dish.price}",
                     fontWeight = FontWeight.Bold,
                     color = LittleLemonColor.green
                 )
             }
-            Image(painter = painterResource(id = Dish.image),
+            Image(painter = painterResource(id = Dish.imageResource),
                 contentDescription = "",
             )
         }
@@ -91,8 +98,3 @@ fun MenuDish(Dish: Dish) {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LowerPanelPreview(){
-    LowerPanel()
-}
